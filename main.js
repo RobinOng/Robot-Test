@@ -6,7 +6,8 @@ var readline = require("readline");
 //Construct instances of readline.Interface class
 var prompts = readline.createInterface(process.stdin, process.stdout);
 
-askFirstInput();
+doDraw();
+//askFirstInput();
 
 //User first input
 function askFirstInput(){
@@ -167,4 +168,18 @@ function errorInput(){
 function errorMove(){
     console.log("Unable to move forward, the robot would fall off the table");
     askConsecutiveInput();
+}
+
+function doDraw(){
+    console.log(" --- --- --- --- --- ");
+    console.log("|   |   |   |   |   |");
+    console.log(" --- --- --- --- --- ");
+    console.log("|   |   |   |   |   |");
+    console.log(" --- --- --- --- --- ");
+    console.log("|   |   |   |   |   |");
+    console.log(" --- --- --- --- --- ");
+    console.log("|   |   |   |   |   |");
+    console.log(" --- --- --- --- --- ");
+    console.log("|   |   |   |   |   |");
+    console.log(" --- --- --- --- --- ");
 }
