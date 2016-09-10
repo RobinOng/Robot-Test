@@ -7,7 +7,6 @@ var readline = require("readline");
 var prompts = readline.createInterface(process.stdin, process.stdout);
 
 askFirstInput();
-askConsecutiveInput();
 
 //User first input
 function askFirstInput(){
@@ -27,10 +26,11 @@ function askFirstInput(){
         var isF = (F=="NORTH" || F=="SOUTH" || F=="EAST" || F=="WEST");
 
         if (isPLACE && isSPACE && isCOMMA && isX && isY && isF){
-            message = "Valid command, continue your input:";
+            message = "Valid command.";
             console.log(message);
             storeInput(X,Y,F);
-            process.exit();
+            askConsecutiveInput();
+//            process.exit();
         } else {
             message = "Invalid command, please input a new command:";
             console.log(message);
@@ -78,5 +78,6 @@ function askConsecutiveInput(){
 //              doReport();
 //              process.exit();
 //       }
+        return true;
     })
 }
