@@ -156,6 +156,7 @@ function doRight() {
 
 function doReport() {
     console.log(X + "," + Y + "," + F);
+    askConsecutiveInput();
 }
 
 function errorInput(){
