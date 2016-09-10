@@ -50,40 +50,44 @@ function askFirstInput(){
 function askConsecutiveInput(){
     prompts.question("Please continue inputting your commands here:", function (userInput) {
 
+        var isPLACE = (userInput.substring(0,5)=="PLACE");
+        var isSPACE = (userInput.substring(5,6)==" ");
+        var isCOMMA = (userInput.substring(7,8)=="," && userInput.substring(9,10)==",");
+        var isX = (userInput.substring(6,7)>=0 && userInput.substring(6,7)<=5);
+        var isY = (userInput.substring(8,9)>=0 && userInput.substring(8,9)<=5);
+        var isF = (userInput.substring(10,15)=="NORTH" || userInput.substring(10,15)=="SOUTH" || userInput.substring(10,15)=="EAST" || userInput.substring(10,15)=="WEST");
 
-        //Validate User Input
-//      validateUserInput();
+        if (isPLACE && isSPACE && isCOMMA && isX && isY && isF) {
+            X = userInput.substring(6,7);
+            Y = userInput.substring(8,9);
+            F = userInput.substring(10,15);
+            askConsecutiveInput();
+        }else{
+            switch (userInput) {
+                    //User input "MOVE"
+                    case "MOVE":
+                        doMove();
+                        break;
 
-      switch (userInput) {
+                    //User input "LEFT"
+                    case "LEFT":
+                        doLeft();
+                        break;
 
-            //User input "PLACE X,Y,F"
-//          doPlace();
-//          break;
+                    //User input "RIGHT"
+                    case "RIGHT":
+                        doRight();
+                        break;
 
-            //User input "MOVE"
-          case "MOVE":
-                doMove();
-                break;
+                    //User input "REPORT"
+                    case "REPORT":
+                        doReport();
+                        break;
+    //              process.exit();
 
-            //User input "LEFT"
-          case "LEFT":
-              doLeft();
-              break;
-
-            //User input "RIGHT"
-          case "RIGHT":
-              doRight();
-              break;
-
-            //User input "REPORT"
-          case "REPORT":
-              doReport();
-              break;
-//              process.exit();
-
-            default:
-                errorInput();
-
+                    default:
+                        errorInput();
+                }
        }
         return true;
     })
