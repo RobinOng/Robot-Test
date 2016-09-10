@@ -133,8 +133,7 @@ function doRight() {
 }
 
 function doReport() {
-    console.log("report");
-    askConsecutiveInput();
+    console.log(X + "," + Y + "," + F);
 }
 
 function errorInput(){
