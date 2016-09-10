@@ -90,7 +90,36 @@ function askConsecutiveInput(){
 }
 
 function doMove(){
-    console.log("move");
+    switch(F){
+        case "NORTH":
+            if (X == 5){
+                errorMove();
+            }else{
+                X++;
+            }
+            break;
+        case "SOUTH":
+            if (X == 0) {
+                errorMove();
+            }else{
+                X--;
+            }
+            break;
+        case "EAST":
+            if (Y == 5){
+                errorMove();
+            }else{
+                Y++;
+            }
+            break;
+        case "WEST":
+            if (Y == 0) {
+                errorMove();
+            }else{
+                Y--;
+            }
+            break;
+    }
     askConsecutiveInput();
 }
 
@@ -137,6 +166,11 @@ function doReport() {
 }
 
 function errorInput(){
-    console.log("Invalid Command, command ignored.")
+    console.log("Invalid Command, command ignored.");
+    askConsecutiveInput();
+}
+
+function errorMove(){
+    console.log("Unable to move forward, the robot would fall off the table");
     askConsecutiveInput();
 }
