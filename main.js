@@ -10,7 +10,7 @@ askFirstInput();
 
 //User first input
 function askFirstInput(){
-    prompts.question("Please input your first commands here:", function (userInput) {
+    prompts.question("Please enter your command here:", function (userInput) {
 
         //Extract userInput
         X = userInput.substring(6,7);
@@ -19,13 +19,9 @@ function askFirstInput(){
 
         //Validate userInput
         if (validateFirstInput(userInput)){
-            message = "Valid command.";
-            console.log(message);
             askConsecutiveInput();
-//            storeInput(X,Y,F);
-//            process.exit();
         } else {
-            message = "Invalid command, please input a new command:";
+            message = "Invalid command.";
             console.log(message);
             askFirstInput();
         }
@@ -43,7 +39,7 @@ function validateFirstInput(userCommand){
 }
 
 function askConsecutiveInput(){
-    prompts.question("Please continue inputting your commands here:", function (userInput) {
+    prompts.question("Please continue entering your commands here:", function (userInput) {
 
         var isPLACE = (userInput.substring(0,5)=="PLACE");
         var isSPACE = (userInput.substring(5,6)==" ");
@@ -137,7 +133,6 @@ function doLeft() {
             F = "SOUTH";
             break;
     }
-    console.log(F);
     askConsecutiveInput();
 }
 
@@ -156,7 +151,6 @@ function doRight() {
             F = "NORTH";
             break;
     }
-    console.log(F);
     askConsecutiveInput();
 }
 
