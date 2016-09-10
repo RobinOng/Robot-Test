@@ -28,6 +28,7 @@ function askFirstInput(){
         if (isPLACE && isSPACE && isCOMMA && isX && isY && isF){
             message = "Valid command, continue your input:";
             console.log(message);
+            storeInput(X,Y,F);
             process.exit();
         } else {
             message = "Invalid command, please input a new command:";
@@ -35,4 +36,10 @@ function askFirstInput(){
             askFirstInput();
         }
     })
+}
+
+function storeInput(valX,valY,valF){
+    var registerX = valX;
+    var registerY = valY;
+    var registerF = valF;
 }
