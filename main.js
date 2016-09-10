@@ -100,7 +100,21 @@ function doLeft() {
 }
 
 function doRight() {
-    console.log("right");
+    switch(F){
+        case "NORTH":
+            F = "EAST";
+            break;
+        case "SOUTH":
+            F = "WEST";
+            break;
+        case "EAST":
+            F = "SOUTH";
+            break;
+        case "WEST":
+            F = "NORTH";
+            break;
+    }
+    console.log(F);
     askConsecutiveInput();
 }
 
