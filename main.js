@@ -95,7 +95,21 @@ function doMove(){
 }
 
 function doLeft() {
-    console.log("left");
+    switch(F){
+        case "NORTH":
+            F = "WEST";
+            break;
+        case "SOUTH":
+            F = "EAST";
+            break;
+        case "EAST":
+            F = "NORTH";
+            break;
+        case "WEST":
+            F = "SOUTH";
+            break;
+    }
+    console.log(F);
     askConsecutiveInput();
 }
 
