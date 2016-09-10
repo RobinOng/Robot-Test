@@ -13,9 +13,9 @@ function askFirstInput(){
     prompts.question("Please input your first commands here:", function (userInput) {
 
         //Extract userInput
-        var X = userInput.substring(6,7);
-        var Y = userInput.substring(8,9);
-        var F = userInput.substring(10,15);
+        X = userInput.substring(6,7);
+        Y = userInput.substring(8,9);
+        F = userInput.substring(10,15);
 
         //Validate userInput
         var isPLACE = (userInput.substring(0,5)=="PLACE");
@@ -28,8 +28,8 @@ function askFirstInput(){
         if (isPLACE && isSPACE && isCOMMA && isX && isY && isF){
             message = "Valid command.";
             console.log(message);
-            storeInput(X,Y,F);
             askConsecutiveInput();
+//            storeInput(X,Y,F);
 //            process.exit();
         } else {
             message = "Invalid command, please input a new command:";
@@ -39,45 +39,77 @@ function askFirstInput(){
     })
 }
 
-function storeInput(valX,valY,valF){
-    var registerX = valX;
-    var registerY = valY;
-    var registerF = valF;
-    return registerX, registerY, registerF;
-}
+//function storeInput(valX,valY,valF){
+//    var registerX = valX;
+//    var registerY = valY;
+//    var registerF = valF;
+//    askConsecutiveInput();
+//    return registerX, registerY, registerF;
+//}
 
 function askConsecutiveInput(){
     prompts.question("Please continue inputting your commands here:", function (userInput) {
 
+
         //Validate User Input
 //      validateUserInput();
 
-//      switch (userInput) {
+      switch (userInput) {
 
             //User input "PLACE X,Y,F"
 //          doPlace();
 //          break;
 
             //User input "MOVE"
-//          case "MOVE":
-//                doMove();
-//                break;
+          case "MOVE":
+                doMove();
+                break;
 
             //User input "LEFT"
-//          case "LEFT":
-//              doLeft();
-//              break;
+          case "LEFT":
+              doLeft();
+              break;
 
             //User input "RIGHT"
-//          case "RIGHT:
-//              doRight();
-//              break;
+          case "RIGHT":
+              doRight();
+              break;
 
             //User input "REPORT"
-//          case "REPORT":
-//              doReport();
+          case "REPORT":
+              doReport();
+              break;
 //              process.exit();
-//       }
+
+            default:
+                errorInput();
+
+       }
         return true;
     })
+}
+
+function doMove(){
+    console.log("move");
+    askConsecutiveInput();
+}
+
+function doLeft() {
+    console.log("left");
+    askConsecutiveInput();
+}
+
+function doRight() {
+    console.log("right");
+    askConsecutiveInput();
+}
+
+function doReport() {
+    console.log("report");
+    askConsecutiveInput();
+}
+
+function errorInput(){
+    console.log("Invalid Command, command ignored.")
+    askConsecutiveInput();
 }
