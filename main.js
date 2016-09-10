@@ -7,6 +7,7 @@ var readline = require("readline");
 var prompts = readline.createInterface(process.stdin, process.stdout);
 
 askFirstInput();
+askConsecutiveInput();
 
 //User first input
 function askFirstInput(){
@@ -42,4 +43,40 @@ function storeInput(valX,valY,valF){
     var registerX = valX;
     var registerY = valY;
     var registerF = valF;
+    return registerX, registerY, registerF;
+}
+
+function askConsecutiveInput(){
+    prompts.question("Please continue inputting your commands here:", function (userInput) {
+
+        //Validate User Input
+//      validateUserInput();
+
+//      switch (userInput) {
+
+            //User input "PLACE X,Y,F"
+//          doPlace();
+//          break;
+
+            //User input "MOVE"
+//          case "MOVE":
+//                doMove();
+//                break;
+
+            //User input "LEFT"
+//          case "LEFT":
+//              doLeft();
+//              break;
+
+            //User input "RIGHT"
+//          case "RIGHT:
+//              doRight();
+//              break;
+
+            //User input "REPORT"
+//          case "REPORT":
+//              doReport();
+//              process.exit();
+//       }
+    })
 }
