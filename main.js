@@ -18,14 +18,7 @@ function askFirstInput(){
         F = userInput.substring(10,15);
 
         //Validate userInput
-        var isPLACE = (userInput.substring(0,5)=="PLACE");
-        var isSPACE = (userInput.substring(5,6)==" ");
-        var isCOMMA = (userInput.substring(7,8)=="," && userInput.substring(9,10)==",");
-        var isX = (X>=0 && X<=5);
-        var isY = (Y>=0 && Y<=5);
-        var isF = (F=="NORTH" || F=="SOUTH" || F=="EAST" || F=="WEST");
-
-        if (isPLACE && isSPACE && isCOMMA && isX && isY && isF){
+        if (validateFirstInput(userInput)){
             message = "Valid command.";
             console.log(message);
             askConsecutiveInput();
@@ -39,13 +32,15 @@ function askFirstInput(){
     })
 }
 
-//function storeInput(valX,valY,valF){
-//    var registerX = valX;
-//    var registerY = valY;
-//    var registerF = valF;
-//    askConsecutiveInput();
-//    return registerX, registerY, registerF;
-//}
+function validateFirstInput(userCommand){
+    var isPLACE = (userCommand.substring(0,5)=="PLACE");
+    var isSPACE = (userCommand.substring(5,6)==" ");
+    var isCOMMA = (userCommand.substring(7,8)=="," && userCommand.substring(9,10)==",");
+    var isX = (X>=0 && X<=5);
+    var isY = (Y>=0 && Y<=5);
+    var isF = (F=="NORTH" || F=="SOUTH" || F=="EAST" || F=="WEST");
+    return (isPLACE && isSPACE && isCOMMA && isX && isY && isF);
+}
 
 function askConsecutiveInput(){
     prompts.question("Please continue inputting your commands here:", function (userInput) {
