@@ -6,8 +6,8 @@ var readline = require("readline");
 //Construct instances of readline.Interface class
 var prompts = readline.createInterface(process.stdin, process.stdout);
 
-doDraw();
-//askFirstInput();
+//Run Programme
+askFirstInput();
 
 //User first input
 function askFirstInput(){
@@ -29,6 +29,7 @@ function askFirstInput(){
     })
 }
 
+//Validate userInput
 function validateFirstInput(userCommand){
     var isPLACE = (userCommand.substring(0,5)=="PLACE");
     var isSPACE = (userCommand.substring(5,6)==" ");
@@ -39,6 +40,7 @@ function validateFirstInput(userCommand){
     return (isPLACE && isSPACE && isCOMMA && isX && isY && isF);
 }
 
+//User consecutive input
 function askConsecutiveInput(){
     prompts.question("Please continue entering your commands here:", function (userInput) {
 
@@ -156,6 +158,7 @@ function doRight() {
 }
 
 function doReport() {
+    doDraw();
     console.log(X + "," + Y + "," + F);
     askConsecutiveInput();
 }
@@ -171,15 +174,52 @@ function errorMove(){
 }
 
 function doDraw(){
-    console.log(" --- --- --- --- --- ");
-    console.log("|   |   |   |   |   |");
-    console.log(" --- --- --- --- --- ");
-    console.log("|   |   |   |   |   |");
-    console.log(" --- --- --- --- --- ");
-    console.log("|   |   |   |   |   |");
-    console.log(" --- --- --- --- --- ");
-    console.log("|   |   |   |   |   |");
-    console.log(" --- --- --- --- --- ");
-    console.log("|   |   |   |   |   |");
-    console.log(" --- --- --- --- --- ");
+    var lineHorizontal = " --- --- --- --- --- ";
+    var lineVertical = "|   |   |   |   |   |";
+
+    var arrowF = "";
+
+    switch(F){
+        case "NORTH":
+            arrowF = "^";
+            break;
+        case "SOUTH":
+            arrowF = "v";
+            break;
+        case "EAST":
+            arrowF = ">";
+            break;
+        case "WEST":
+            arrowF = "<";
+            break;
+    }
+
+    var nth = 0;
+    var x = parseInt(X)+1;
+
+    var lineHorizontalWithRobot = lineHorizontal.replace(/ /g, function (match) {
+        nth++;
+        return (nth == x) ? arrowF : match;
+    });
+
+    if (Y > 0){
+        for (var i=5; i>0; i--){
+            if (i == Y){
+                console.log(lineHorizontalWithRobot);
+                console.log(lineVertical);
+            }else{
+                console.log(lineHorizontal);
+                console.log(lineVertical);
+            }
+        }
+        console.log(lineHorizontal);
+    }
+
+    if (Y == 0){
+        for (var i=5; i>0; i--){
+            console.log(lineHorizontal);
+            console.log(lineVertical);
+        }
+        console.log(lineHorizontalWithRobot);
+    }
 }
