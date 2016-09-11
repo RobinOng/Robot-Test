@@ -9,6 +9,11 @@ var prompts = readline.createInterface(process.stdin, process.stdout);
 //Run Programme
 askFirstInput();
 
+//Define global variables
+var X = 0;
+var Y = 0;
+var F = 0;
+
 //User first input
 function askFirstInput(){
     console.log("List of Command:-");
