@@ -177,7 +177,7 @@ function doDraw(){
     var lineHorizontal = " --- --- --- --- --- ";
     var lineVertical = "|   |   |   |   |   |";
 
-    var arrowF = "";
+    var arrowF;
 
     switch(F){
         case "NORTH":
