@@ -11,6 +11,8 @@ askFirstInput();
 
 //User first input
 function askFirstInput(){
+    console.log("List of Command:-");
+    console.log("- PLACE X,Y,F");
     prompts.question("Please enter your command here:", function (userInput) {
 
         //Extract userInput
@@ -42,6 +44,12 @@ function validateFirstInput(userCommand){
 
 //User consecutive input
 function askConsecutiveInput(){
+    console.log("List of Commands:-");
+    console.log("- PLACE X,Y,F");
+    console.log("- MOVE");
+    console.log("- LEFT");
+    console.log("- RIGHT");
+    console.log("- REPORT");
     prompts.question("Please continue entering your commands here:", function (userInput) {
 
         var isPLACE = (userInput.substring(0,5)=="PLACE");
@@ -90,31 +98,31 @@ function askConsecutiveInput(){
 function doMove(){
     switch(F){
         case "NORTH":
-            if (X == 5){
-                errorMove();
-            }else{
-                X++;
-            }
-            break;
-        case "SOUTH":
-            if (X == 0) {
-                errorMove();
-            }else{
-                X--;
-            }
-            break;
-        case "EAST":
             if (Y == 5){
                 errorMove();
             }else{
                 Y++;
             }
             break;
-        case "WEST":
+        case "SOUTH":
             if (Y == 0) {
                 errorMove();
             }else{
                 Y--;
+            }
+            break;
+        case "EAST":
+            if (X == 5){
+                errorMove();
+            }else{
+                X++;
+            }
+            break;
+        case "WEST":
+            if (X == 0) {
+                errorMove();
+            }else{
+                X--;
             }
             break;
     }
