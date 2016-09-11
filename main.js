@@ -20,6 +20,9 @@ function askFirstInput(){
     console.log("- PLACE X,Y,F");
     prompts.question("Please enter your command here:", function (userInput) {
 
+        //Change userInput to upper case
+        userInput = userInput.toUpperCase();
+
         //Extract userInput
         X = userInput.substring(6,7);
         Y = userInput.substring(8,9);
@@ -57,6 +60,10 @@ function askConsecutiveInput(){
     console.log("- REPORT");
     prompts.question("Please continue entering your commands here:", function (userInput) {
 
+        //Change userInput to upper case
+        userInput = userInput.toUpperCase();
+
+        //User input "PLACE X,Y,F"
         var isPLACE = (userInput.substring(0,5)=="PLACE");
         var isSPACE = (userInput.substring(5,6)==" ");
         var isCOMMA = (userInput.substring(7,8)=="," && userInput.substring(9,10)==",");
