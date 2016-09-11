@@ -1,4 +1,4 @@
-console.log('Hello World'); //Test Line
+console.log('Welcome to The Robot Test'); //Welcoming message
 
 //Import readline module
 var readline = require("readline");
