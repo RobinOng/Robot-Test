@@ -102,3 +102,10 @@ Output:
  --- --- --- --- --- 
 2,4,NORTH
 ```
+
+## Design Decisions
+1) REPORT command shows a grid of the tabletop and the toy robot is indicated by an arrowhead, which represents its position and direction the toy robot is facing. This feature is added to let user visualize better on the scenario and the application would serve its purpose more effectively.
+
+2) All commands are now non case-sensitive. User can now has more ways to enter commands thus increasing the usability of the application.
+
+3) An error message is printed whenever invalid command is entered. This notifies the user that an incorrect instruction has been given so that user has better understanding of the situation rather than ignoring the command without any notification.
