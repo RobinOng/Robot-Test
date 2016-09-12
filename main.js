@@ -32,7 +32,7 @@ function askFirstInput(){
         if (validateFirstInput(userInput)){
             askConsecutiveInput();
         } else {
-            message = "Invalid command.";
+            var message = "Invalid command.";
             console.log(message);
             askFirstInput();
         }
@@ -58,6 +58,7 @@ function askConsecutiveInput(){
     console.log("- LEFT");
     console.log("- RIGHT");
     console.log("- REPORT");
+    console.log("- SHOW");
     prompts.question("Please continue entering your commands here:", function (userInput) {
 
         //Change userInput to upper case
@@ -78,29 +79,33 @@ function askConsecutiveInput(){
             askConsecutiveInput();
         }else{
             switch (userInput) {
-                    //User input "MOVE"
-                    case "MOVE":
-                        doMove();
-                        break;
+                //User input "MOVE"
+                case "MOVE":
+                    doMove();
+                break;
 
-                    //User input "LEFT"
-                    case "LEFT":
-                        doLeft();
-                        break;
+                //User input "LEFT"
+                case "LEFT":
+                    doLeft();
+                break;
 
-                    //User input "RIGHT"
-                    case "RIGHT":
-                        doRight();
-                        break;
+                //User input "RIGHT"
+                case "RIGHT":
+                    doRight();
+                break;
 
-                    //User input "REPORT"
-                    case "REPORT":
-                        doReport();
-                        break;
-    //              process.exit();
+                //User input "REPORT"
+                case "REPORT":
+                    doReport();
+                break;
 
-                    default:
-                        errorInput();
+                //User input "SHOW"
+                case "SHOW":
+                    doShow();
+                break;
+
+                default:
+                    errorInput();
                 }
        }
         return true;
@@ -178,7 +183,6 @@ function doRight() {
 }
 
 function doReport() {
-    doDraw();
     console.log(X + "," + Y + "," + F);
     askConsecutiveInput();
 }
@@ -193,7 +197,7 @@ function errorMove(){
     askConsecutiveInput();
 }
 
-function doDraw(){
+function doShow(){
     var lineHorizontal = " --- --- --- --- --- ";
     var lineVertical = "|   |   |   |   |   |";
 
