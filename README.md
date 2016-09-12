@@ -116,5 +116,8 @@ Output:
 
 3) An error message is printed whenever invalid command is entered. This notifies the user that an incorrect instruction has been given so that user has better understanding of the situation rather than ignoring the command without any notification.
 
+## Acknowledgement
+* Test designed by [@bauerxcelmedia](https://github.com/bauerxcelmedia).
+
 ## Author
 * Robin Ong - robinkjong@hotmail.com
