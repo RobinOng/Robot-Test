@@ -109,3 +109,6 @@ Output:
 2) All commands are now non case-sensitive. User can now has more ways to enter commands thus increasing the usability of the application.
 
 3) An error message is printed whenever invalid command is entered. This notifies the user that an incorrect instruction has been given so that user has better understanding of the situation rather than ignoring the command without any notification.
+
+##Author
+* Robin Ong - robinkjong@hotmail.com
