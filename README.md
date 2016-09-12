@@ -15,3 +15,10 @@ MOVE will move the toy robot one unit forward in the direction it is currently f
 LEFT and RIGHT will rotate the toy robot 90 degrees in the specified direction without changing the position of the robot.
 
 REPORT will show the X-coordinate, Y-coordinate and the direction of the toy robot is currently facing. Also, REPORT will show the grid of the tabletop with the location of the toy robot indicated on it.
+
+## Getting started
+1) Download the folder and run 'main.js'.
+
+2) PLACE command will be the first valid command to the toy robot. The placement of the toy robot must be within the grid of the tabletop and the application discards all commands in the sequence until a valid PLACE has been executed.
+
+3) After the first PLACE command is executed, any sequence of commands may be issued, in any order, including another PLACE command. The toy robot must not fall to destruction. Any MOVE command that would result in the robot failling off the table is discarded, however further valid commands can still be entered.
