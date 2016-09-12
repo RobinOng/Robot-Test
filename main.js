@@ -246,4 +246,5 @@ function doShow(){
         }
         console.log(lineHorizontalWithRobot);
     }
+    askConsecutiveInput();
 }
